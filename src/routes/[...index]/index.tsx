@@ -4,6 +4,7 @@ import { fetchOneEntry, Content } from "@builder.io/sdk-qwik";
 import { CUSTOM_COMPONENTS } from "~/components/builder-registry";
 import type { DocumentHead } from '@builder.io/qwik-city';
 import "@fontsource/poppins";
+import "@fontsource/alex-brush";
 
 export const BUILDER_MODEL = "page";
 
