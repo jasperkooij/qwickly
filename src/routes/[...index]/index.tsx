@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { fetchOneEntry, Content } from "@builder.io/sdk-qwik";
 import { CUSTOM_COMPONENTS } from "~/components/builder-registry";
+import type { DocumentHead } from '@builder.io/qwik-city';
 
 export const BUILDER_MODEL = "page";
 
@@ -42,3 +43,16 @@ export default component$(() => {
     />
   );
 });
+
+export const head: DocumentHead = ({ resolveValue }) => {
+  const builderContent = resolveValue(useBuilderContent);
+  return {
+    title: builderContent?.data?.title + " | Qwickly",
+    meta: [
+      {
+        name: "description",
+        content: builderContent?.data?.description,
+      },
+    ],
+  };
+};
